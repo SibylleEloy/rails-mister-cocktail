@@ -1,9 +1,12 @@
 <div class="container">
 <h1><%= @cocktail.name %></h1>
 
+<%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+
 <% @cocktail.doses.each do |dose| %>
 <%= dose.description %>
 <%= dose.ingredient.name %>
+<%= link_to "delete", dose_path(dose), method: :delete  %>
 <% end %>
-<%= link_to "X", dose_path(dose), method: :delete  %>
+
 </div>
